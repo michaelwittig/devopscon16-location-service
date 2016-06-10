@@ -11,10 +11,10 @@ exports.handler = function(event, context, cb) {
         "S": event.id
       },
       "latitude": {
-        "N": event.latitude.toString()
+        "N": event.body.latitude.toString()
       },
       "longitude": {
-        "N": event.longitude.toString()
+        "N": event.body.longitude.toString()
       }
     },
     "TableName": "location"
