@@ -43,7 +43,7 @@
               "Sid": "1",
               "Effect": "Allow",
               "Action": [
-                "dynamodb:GetItem"
+                "dynamodb:PutItem"
               ],
               "Resource": [
                 {"Fn::Join" : ["", ["arn:aws:dynamodb:", {"Ref": "AWS::Region"}, ":", {"Ref": "AWS::AccountId"}, ":table/location"]]}
