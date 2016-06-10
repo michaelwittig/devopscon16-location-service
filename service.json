@@ -146,7 +146,7 @@
         "AuthorizerResultTtlInSeconds": 300,
         "AuthorizerUri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Ref": "AuthLambdaArn"}, "/invocations"]]},
         "IdentitySource": "method.request.header.Authorization",
-        "IdentityValidationExpression": "^[a-zA-Z0-9]{3-32}$",
+        "IdentityValidationExpression": "^[a-zA-Z0-9]{3,32}$",
         "Name": "location-service-api-authorizer",
         "RestApiId": {"Ref": "RestApi"},
         "Type": "TOKEN"
