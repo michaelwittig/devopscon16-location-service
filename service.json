@@ -133,7 +133,7 @@
             "Statement": [{
               "Effect": "Allow",
               "Action": "lambda:invokeFunction",
-              "Resource": {"Ref": ["AuthLambdaArn"]}
+              "Resource": {"Ref": "AuthLambdaArn"}
             }]
           }
         }]
@@ -144,7 +144,7 @@
       "Properties": {
         "AuthorizerCredentials": {"Fn::GetAtt": ["RestApiAuthorizerRole", "Arn"]},
         "AuthorizerResultTtlInSeconds": 300,
-        "AuthorizerUri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Ref": ["AuthLambdaArn"]}, "/invocations"]]},
+        "AuthorizerUri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Ref": "AuthLambdaArn"}, "/invocations"]]},
         "IdentitySource": "method.request.header.Authorization",
         "IdentityValidationExpression": "^[a-zA-Z0-9]{32}$",
         "Name": "location-service-api-authorizer",
@@ -227,6 +227,11 @@
           "StatusCode": 204
         }]
       }
+    }
+  },
+  "Outputs": {
+    "LocationLambdaArn": {
+      "Value": {"Fn::GetAtt": ["Lambda", "Arn"]}
     }
   }
 }
