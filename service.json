@@ -115,7 +115,43 @@
         "TableName": "location"
       }
     },
-
+    "LocationTableReadThrottleEventsAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "Namespace": "AWS/DynamoDB",
+        "MetricName": "ReadThrottleEvents",
+        "Dimensions": [{
+          "Name": "TableName",
+          "Value": {"Ref": "LocationTable"}
+        }],
+        "Statistic": "Sum",
+        "Period": "60",
+        "EvaluationPeriods": "1",
+        "Threshold": "1",
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "AlarmActions": [{"Ref": "AlertTopicArn"}],
+        "OKActions": [{"Ref": "AlertTopicArn"}]
+      }
+    },
+    "LocationTableWriteThrottleEventsAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "Namespace": "AWS/DynamoDB",
+        "MetricName": "WriteThrottleEvents",
+        "Dimensions": [{
+          "Name": "TableName",
+          "Value": {"Ref": "LocationTable"}
+        }],
+        "Statistic": "Sum",
+        "Period": "60",
+        "EvaluationPeriods": "1",
+        "Threshold": "1",
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "AlarmActions": [{"Ref": "AlertTopicArn"}],
+        "OKActions": [{"Ref": "AlertTopicArn"}]
+      }
+    },
+    
     "RestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
