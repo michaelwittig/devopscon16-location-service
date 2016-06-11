@@ -110,7 +110,13 @@
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {"Ref": "RestApi"},
-        "StageName": "v1"
+        "StageName": "v1",
+        "StageDescription": {
+          "DataTraceEnabled": true,
+          "HttpMethod": "*",
+          "LoggingLevel": "INFO",
+          "ResourcePath": "/*"
+        }
       },
       "DependsOn": ["LocationPut"]
     },
