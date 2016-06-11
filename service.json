@@ -112,10 +112,13 @@
         "RestApiId": {"Ref": "RestApi"},
         "StageName": "v1",
         "StageDescription": {
-          "DataTraceEnabled": true,
-          "HttpMethod": "*",
-          "LoggingLevel": "INFO",
-          "ResourcePath": "/*"
+          "StageName": "v1",
+          "MethodSettings": {
+            "DataTraceEnabled": true,
+            "HttpMethod": "*",
+            "LoggingLevel": "INFO",
+            "ResourcePath": "/*"
+          }
         }
       },
       "DependsOn": ["LocationPut"]
