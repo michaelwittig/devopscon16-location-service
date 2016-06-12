@@ -99,7 +99,6 @@
       "Type": "AWS::CloudWatch::Alarm",
       "Properties": {
         "AlarmActions": [{"Ref": "AlertTopicArn"}],
-        "OKActions": [{"Ref": "AlertTopicArn"}],
         "MetricName": "UnhandledErrorCount",
         "Namespace": "location-service",
         "Statistic": "Sum",
@@ -141,8 +140,7 @@
         "EvaluationPeriods": "1",
         "Threshold": "1",
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
-        "AlarmActions": [{"Ref": "AlertTopicArn"}],
-        "OKActions": [{"Ref": "AlertTopicArn"}]
+        "AlarmActions": [{"Ref": "AlertTopicArn"}]
       }
     },
     "LocationTableWriteThrottleEventsAlarm": {
@@ -159,8 +157,7 @@
         "EvaluationPeriods": "1",
         "Threshold": "1",
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
-        "AlarmActions": [{"Ref": "AlertTopicArn"}],
-        "OKActions": [{"Ref": "AlertTopicArn"}]
+        "AlarmActions": [{"Ref": "AlertTopicArn"}]
       }
     },
     
@@ -235,7 +232,6 @@
       "Type": "AWS::CloudWatch::Alarm",
       "Properties": {
         "AlarmActions": [{"Ref": "AlertTopicArn"}],
-        "OKActions": [{"Ref": "AlertTopicArn"}],
         "MetricName": "5XXError",
         "Namespace": "ApiGateway",
         "Statistic": "Sum",
