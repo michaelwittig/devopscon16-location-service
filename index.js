@@ -25,8 +25,8 @@ exports.handler = function(event, context, cb) {
             "status": 200,
             "body": {
               "id": data.Item.id.S,
-              "latitude": data.Item.latitude.N,
-              "longitude": data.Item.longitude.N
+              "latitude": parseFloat(data.Item.latitude.N),
+              "longitude": parseFloat(data.Item.longitude.N)
             }
           });
         }
