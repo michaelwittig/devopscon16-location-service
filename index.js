@@ -22,7 +22,6 @@ exports.handler = function(event, context, cb) {
         } else {
           console.log(JSON.stringify(data.Item));
           cb(null, {
-            "status": 200,
             "body": {
               "id": data.Item.id.S,
               "latitude": parseFloat(data.Item.latitude.N),
