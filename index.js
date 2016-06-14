@@ -18,7 +18,7 @@ exports.handler = function(event, context, cb) {
         cb(err);
       } else {
         if (data.Item === undefined) {
-          cb(new Error("ServiceErrorNotFound"));
+          cb(new Error("[NotFound] Location not found"));
         } else {
           console.log(JSON.stringify(data.Item));
           cb(null, {
